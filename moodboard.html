@@ -5,9 +5,46 @@
     <title>Mood Board</title>
 </head>
 
+
 <body>
 
     <h1>Mood Board</h1>
+
+    <button id="toggleBtn">Show Moods</button>
+
+    <div id="board"></div>
+
+    <script>
+
+const moods = [
+    { emoji: "😁", text: "Feeling awesome!" },
+    { emoji: "🤔", text: "Thinking deeply..." },
+    { emoji: "😴", text: "Need more coffee." },
+    { emoji: "🚀", text: "Ready to build something!" }
+];
+
+const button = document.getElementById("toggleBtn");
+const board = document.getElementById("board");
+
+button.addEventListener("click", function() {
+
+    let content = "";
+
+    moods.forEach(mood => {
+
+        content += `
+            <div class="mood">
+                <strong>${mood.emoji}</strong> ${mood.text}
+            </div>
+        `;
+
+    });
+
+    board.innerHTML = content;
+});
+
+</script>
+
 
 </body>
 </html>
